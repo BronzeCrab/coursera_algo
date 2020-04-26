@@ -57,7 +57,7 @@ class Application(tk.Frame):
         self.create_circles(30, 150, 10)
 
         self.label = tk.Label(
-            self, text='Two index of p and q, comma-separated for union',
+            self, text='Two indexes p and q, comma-separated for union',
         )
         self.label.pack()
         self.entry = tk.Entry(self)
