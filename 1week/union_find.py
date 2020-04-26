@@ -47,14 +47,14 @@ class Application(tk.Frame):
         """Create all widgets."""
         self.canvas = tk.Canvas(
             self,
-            width=600,
-            height=400,
+            width=800,
+            height=600,
             borderwidth=2,
             relief='groove',
         )
         self.canvas.pack()
 
-        self.create_circles(30, 150, 10)
+        self.create_circles()
 
         self.label = tk.Label(
             self, text='Two indexes p and q, comma-separated for union',
@@ -84,9 +84,12 @@ class Application(tk.Frame):
         )
         self.quit.pack()
 
-    def create_circles(self, x, y, r):
+    def create_circles(self):
         """Creating circles with elements inside."""
         x_off = 50
+        x = 80
+        y = 150
+        r = 20
         for el in self.uf.alist:
             x += x_off
             x0 = x - r
@@ -98,7 +101,7 @@ class Application(tk.Frame):
             self.canvas.create_text(
                 x,
                 y,
-                font='Roboto 10',
+                font='Roboto 20',
                 fill='black',
                 text=el,
             )
@@ -110,16 +113,16 @@ class Application(tk.Frame):
         q = int(val_list[1])
         self.uf.union(p, q)
         self.canvas.delete('all')
-        self.create_circles(30, 150, 10)
+        self.create_circles()
 
     def clear_and_regen(self):
         """Clear canvas and rerender."""
         self.canvas.delete('all')
         self.uf = UF(self.num_of_elems)
-        self.create_circles(30, 150, 10)
+        self.create_circles()
 
 
 root = tk.Tk()
-root.geometry('800x600')
+root.geometry('1024x768')
 app = Application(root, num_of_elems=10)
 app.mainloop()
