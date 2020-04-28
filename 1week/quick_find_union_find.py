@@ -1,9 +1,9 @@
-"""Union Find Class and Tkinter GUI for it to play."""
+"""Union Find QuickFind Class and Tkinter GUI for it to play."""
 import tkinter as tk
 
 
-class UF(object):
-    """Union Find Class"""
+class QuickFindUF(object):
+    """QuickFind Union Find Class"""
 
     def __init__(self, num_of_elems: int):
         """Created list of elems here."""
@@ -22,7 +22,7 @@ class UF(object):
                 self.alist[i] = q_val
 
 
-uf = UF(10)
+uf = QuickFindUF(10)
 assert len(uf.alist) == 10
 assert uf.is_connected(0, 1) is False
 
@@ -40,7 +40,7 @@ class Application(tk.Frame):
         self.master = master
         self.pack()
         self.num_of_elems = num_of_elems
-        self.uf = UF(num_of_elems)
+        self.uf = QuickFindUF(num_of_elems)
         self.create_widgets()
 
     def create_widgets(self):
@@ -118,7 +118,7 @@ class Application(tk.Frame):
     def clear_and_regen(self):
         """Clear canvas and rerender."""
         self.canvas.delete('all')
-        self.uf = UF(self.num_of_elems)
+        self.uf = QuickFindUF(self.num_of_elems)
         self.create_circles()
 
 
