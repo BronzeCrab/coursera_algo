@@ -1,5 +1,4 @@
 """Union Find QuickUnion Class and Tkinter GUI for it to play."""
-import tkinter as tk
 
 
 class QuickUnionUF(object):
@@ -26,7 +25,6 @@ class QuickUnionUF(object):
         self.alist[root_p] = root_q
 
 
-
 uf = QuickUnionUF(10)
 assert len(uf.alist) == 10
 assert uf.is_connected(0, 1) is False
@@ -34,4 +32,3 @@ assert uf.is_connected(0, 1) is False
 uf.union(0, 1)
 assert uf.is_connected(0, 1) is True
 assert uf.alist[0] == 1
-
