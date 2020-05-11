@@ -1,4 +1,7 @@
 """Union Find QuickUnion Class and Tkinter GUI for it to play."""
+import tkinter as tk
+
+from tkinter_app import BaseApplication
 
 
 class QuickUnionUF(object):
@@ -8,8 +11,16 @@ class QuickUnionUF(object):
         """Created list of elems here."""
         self.alist = list(range(num_of_elems))
 
+    def root_and_lvl(self, i: int):
+        """Find root element for given index and also find out the level."""
+        lvl = 0
+        while i != self.alist[i]:
+            i = self.alist[i]
+            lvl += 1
+        return i, lvl
+
     def _root(self, i: int):
-        """Find root element for given index"""
+        """Find root element for given index."""
         while i != self.alist[i]:
             i = self.alist[i]
         return i
@@ -32,3 +43,9 @@ assert uf.is_connected(0, 1) is False
 uf.union(0, 1)
 assert uf.is_connected(0, 1) is True
 assert uf.alist[0] == 1
+
+
+root = tk.Tk()
+root.geometry('1024x768')
+app = BaseApplication(root, num_of_elems=10, uf_class=QuickUnionUF)
+app.mainloop()

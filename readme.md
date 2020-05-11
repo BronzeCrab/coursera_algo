@@ -12,3 +12,7 @@ that is given to students by lecturer
 In order to play with, for example, 1week Union Find problem just do:
 
 `python 1week/quick_find.py`
+
+or
+
+`python 1week/quick_union.py`
