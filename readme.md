@@ -9,10 +9,14 @@ that is given to students by lecturer
 
 ## Hot to use it
 
-In order to play with, for example, 1week Union Find problem just do:
+Tor run 1week Union Find Quick Find problem do:
 
 `python 1week/quick_find.py`
 
-or
+Tor run 1week Union Find Quick Union problem do:
 
 `python 1week/quick_union.py`
+
+Tor run 1week Union Find Quick Union Improved problem do:
+
+`python 1week/quick_union_improved.py`
