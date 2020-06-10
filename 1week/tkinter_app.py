@@ -141,7 +141,8 @@ class BaseApplication(tk.Frame):
         self.canvas.delete('all')
         if self.uf.__class__.__name__ == 'QuickFindUF':
             self.create_circles()
-        elif self.uf.__class__.__name__ == 'QuickUnionUF':
+        elif self.uf.__class__.__name__ in (
+                'QuickUnionUF', 'QuickUnionImprovedUF'):
             self.create_tree_circles()
 
     def clear_and_regen(self):
